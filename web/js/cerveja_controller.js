@@ -4,12 +4,19 @@ modulo_cerveja
 
                 $scope.cervejas = [];
                 debugger;
-
-                $http.get('http://localhost:8080/Cervejaria1/cervejas').success(function (data) {
-                    debugger;
-                    $scope.cervejas = data;
-                });
-
+                cerveja_service.getCervejas('http://localhost:8080/Cervejaria1/cervejas',$scope);
+                debugger;
+                
+//=======================================
+//                $http.get('http://localhost:8080/Cervejaria1/cervejas').success(function (data, status, fun, header) {
+//                    debugger;
+//                    $scope.cervejas = data;
+//                }).error(function(data, status, fun, header) {
+//                    debugger;
+//                    console.log("PROBLEMA ==>: "+data);
+//                });
+                
+//=======================================
 //                $.ajax({
 //                    //pegando a url apartir da action do form
 //                    url: 'http://localhost:8080/Cervejaria1/cervejas',

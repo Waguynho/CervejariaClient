@@ -8,6 +8,7 @@
             <tr>
                 <th class="col-md-4">Código</th>
                 <th class="col-md-4">Cerveja</th>
+                 <th class="col-md-4">Ano</th>
                 <th class="col-md-4">Importada?</th>
             </tr>
         </thead>
@@ -16,6 +17,7 @@
             <td>{{cerveja.codigo}}</td>
             <td>{{cerveja.nome}}  </td>
             <td>{{cerveja.ano}}</td>
+            <td>{{cerveja.importada}}</td>
             <td><a href="#/Cervejaria1/cervejas/{{$index}}"  class="btn btn-primary" >Editar</a> &nbsp; <a href="#/pessoa/excluirPessoa/{{$index}}">Excluir</a> </td>
            
         </tr>
