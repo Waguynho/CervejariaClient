@@ -1,0 +1,40 @@
+﻿<div class="panel panel-default" >
+
+    <div class="panel-heading" align="center">
+        <h2>Cervejas Top 3 <small> &nbsp; - Experimente c/ moderação! </small></h2>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="col-md-4">Código</th>
+                <th class="col-md-4">Cerveja</th>
+                <th class="col-md-4">Importada?</th>
+            </tr>
+        </thead>
+        <tr ng-repeat="cerveja in cervejas" >
+
+            <td>{{cerveja.codigo}}</td>
+            <td>{{cerveja.nome}}  </td>
+            <td>{{cerveja.ano}}</td>
+            <td><a href="#/Cervejaria1/cervejas/{{$index}}"  class="btn btn-primary" >Editar</a> &nbsp; <a href="#/pessoa/excluirPessoa/{{$index}}">Excluir</a> </td>
+           
+        </tr>
+
+    </table>
+
+
+
+</div>
+<div align="right">
+    <nav>
+        <ul class="pager">
+
+            <li><a href="#/pessoa/adicionarPessoa">Ir para Adicionar Pessoas</a><br />
+            </li>
+
+        </ul>
+    </nav>
+</div>
+
+
+

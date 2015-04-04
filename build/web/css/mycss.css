@@ -1,0 +1,22 @@
+﻿.titulo-branco {
+font-family:'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+color:white;
+}
+.titulo-preto {
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+color:white;
+font-weight:bold;
+}
+.fundo-preto {
+    background-color:#ffcc00;
+margin-left: 1%; 
+}
+.fundo-azul {
+    background-color: #000000;
+margin-left: 2px;
+}
+#rodape {
+    background-color:black;
+    background-repeat: repeat-y;
+}
+

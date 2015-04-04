@@ -4,52 +4,76 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html ng-app="">
+<html ng-app="cervejasModulo">
     <head>
-        <title>Cervejaria Client</title>
+        <title>Cervejaria Cliente</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link type="text/css" href="css/bootstrap.css">
-        <link type="text/css" href="css/bootstrap-theme.css">
-        <link type="text/css" href="css/bootstrap.css.map">
+        <title>Angular CSarp</title>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/mycss.css">
     </head>
     <body>
+        <div class="panel-heading">
 
-        <form ng-model="form1">
+            <div class="row"><!--Cabeçalho-->
+                <div class="col-md-2  panel-heading fundo-azul titulo-preto">
+                    <h4 align="center">Compre!</h4>
 
-            <input type="text" ng-model="nome" value="" />
-            <br>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>CODIGO</th>
-                        <th>NOME</th>
-                        <th>ANO</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>{{nome}}</td>
-                        <td>2015</td>
-                    </tr>
-                    <tr>
-                        <td>dfdf</td>
-                        <td>fsfs</td>
-                        <td>fsdfs</td>
-                    </tr>
-                
-                    <a href="http://" class="btn btn-danger">fldfs</a>
-                </tbody>
-            </table>
-        </form>
+                </div>
 
+                <div class="col-md-9   panel-heading fundo-preto titulo-branco">
+                    <h4 align="center">Bem vindo a Cervejaria Ws</h4>
+                </div>
+                <div class="col-md-offset-1 ">
+                </div>
+            </div>
 
-        <script type="text/javascript" src="js/angular-route.js"></script>
-        <script type="text/javascript" src="js/npm.js"></script>
-        <script type="text/javascript" src="js/angular.js"></script>
+        </div>
+        <div class="row"><!--Meio da Pagina-->
+            <div class="panel-body">
+                <div class="">
+                    <div  class="col-md-2">
+                        <ul >
+                            <li class="list-group list-group-item"><a href="#"> Home</a><br /></li>
+                            <li class="list-group list-group-item"><a href="#/pessoa/adicionarPessoa">Adicionar Pessoas</a></li>
+                            <li class="list-group list-group-item"><a href="#">Teste 1</a></li>
+                            <li class="list-group list-group-item"><a href="#">Teste 2</a></li>
+                        </ul>
+                        <div hegth="50%">  </div>
+
+                    </div>
+
+                    <div class="col-md-8 col-md-offset-0"  ng-controller="cerveja_controller">
+
+                        <nav ng-view width="400px"></nav>
+
+                    </div>
+
+                    <div class="col-md-offset-1">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-1"></div>
+
+            <div id="rodape" class="col-md-10 fundo-preto titulo-branco panel-footer text-left"> wagner-power@hotmail.com </div> 
+
+            <div class="col-md-1"></div>
+
+        </div>
+        
         <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+        <script type="text/javascript" src="js/angular.js"></script>
+        <script type="text/javascript" src="js/angular-route.js"></script>          
         <script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/modulo_cerveja.js"></script>
+        <script type="text/javascript" src="js/cerveja_controller.js"></script>
 
     </body>
 </html>
