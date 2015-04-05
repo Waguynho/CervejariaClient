@@ -14,9 +14,9 @@ modulo_cerveja
                         templateUrl: 'Views/editarCerveja.html',
                         controller: 'editarCervejasController'
                     })
-                    .when('/pessoa/excluirPessoa/:index', {
-                        templateUrl: 'Views/listarPessoas.html',
-                        controller: 'pessoaExcluirController'
+                    .when('/pessoa/excluirCerveja/:index', {
+                        templateUrl: 'Views/listarCervejas.html',
+                        controller: 'deletar_cerveja_ctrl'
                     })
         });
 

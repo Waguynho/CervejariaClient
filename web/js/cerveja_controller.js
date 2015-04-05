@@ -2,20 +2,20 @@ modulo_cerveja
 
         .controller('cerveja_controller', ['$scope', '$http', function ($scope, $http) {
 
-                $scope.cervejas = [];
-                debugger;
-                cerveja_service.getCervejas($scope);
-                debugger;
+//                $scope.cervejas = [];
+//                debugger;
+//                cerveja_service.getCervejas($scope);
+//                debugger;
                 
                 
 //=======================================
-//                $http.get('http://localhost:8080/Cervejaria1/cervejas').success(function (data, status, fun, header) {
-//                    debugger;
-//                    $scope.cervejas = data;
-//                }).error(function(data, status, fun, header) {
-//                    debugger;
-//                    console.log("PROBLEMA ==>: "+data);
-//                });
+                $http.get('http://localhost:8080/Cervejaria1/cervejas').success(function (data, status, fun, header) {
+                    debugger;
+                    $scope.cervejas = data;
+                }).error(function(data, status, fun, header) {
+                    debugger;
+                    console.log("PROBLEMA ==>: "+data);
+                });
                 
 //=======================================
 //                $.ajax({
@@ -64,12 +64,12 @@ modulo_cerveja
             }
 
         })
-        .controller('pessoaExcluirController', function ($scope, $routeParams) {
-
+        .controller('deletar_cerveja_ctrl', function ($scope, $routeParams) {
             debugger;
-            $scope.pessoas.splice($routeParams.index, 1);
-            alert('Excluido com sucesso!');
-
+            var cerjeva_a_deletar = $scope.cervejas[$routeParams.index];
+            
+            cerveja_service.deletarCerveja(cerjeva_a_deletar, $scope, $routeParams.index);
+            
         })
         .controller('editarCervejasController', function ($scope, $routeParams) {
             debugger;
