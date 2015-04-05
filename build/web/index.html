@@ -35,8 +35,8 @@ and open the template in the editor.
                 <div class="">
                     <div  class="col-md-2">
                         <ul >
-                            <li class="list-group list-group-item"><a href="#"> Home</a><br /></li>
-                            <li class="list-group list-group-item"><a href="#/cerveja/adicionarCerveja">Adicionar Cerveja</a></li>
+                            <li class="list-group list-group-item"><a href="#" onclick="exibirMenuBusca(true)"> Home</a><br /></li>
+                            <li class="list-group list-group-item"><a href="#/cerveja/adicionarCerveja " onclick="exibirMenuBusca(false)" >Adicionar Cerveja</a></li>
                             <li class="list-group list-group-item"><a href="#">Teste 1</a></li>
                             <li class="list-group list-group-item"><a href="#">Teste 2</a></li>
                         </ul>
@@ -50,7 +50,14 @@ and open the template in the editor.
 
                     </div>
 
-                    <div class="col-md-offset-1">
+                    <div  class="col-md-offset-1">
+                        <di id="menu_buscar">
+
+                            <label for="buscar" >Buscar</label><br>
+                            <input id="nome" type="search" ng-model="buscar" value="" /><br><br>
+                        </di>
+
+
                     </div>
 
                 </div>
@@ -67,7 +74,7 @@ and open the template in the editor.
             <div class="col-md-1"></div>
 
         </div>
-        
+
         <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
         <script type="text/javascript" src="js/angular.js"></script>
         <script type="text/javascript" src="js/angular-route.js"></script>          
@@ -75,6 +82,7 @@ and open the template in the editor.
         <script type="text/javascript" src="js/modulo_cerveja.js"></script>
         <script type="text/javascript" src="js/cerveja_controller.js"></script>
         <script type="text/javascript" src="js/cerveja_service.js"></script>
+        <script type="text/javascript" src="js/cervejas/valida_cerveja.js"></script>
         <script type="text/javascript" src="js/ajax_puro.js"></script>
 
     </body>

@@ -6,17 +6,17 @@ modulo_cerveja
 //                debugger;
 //                cerveja_service.getCervejas($scope);
 //                debugger;
-                
-                
+
+
 //=======================================
                 $http.get('http://localhost:8080/Cervejaria1/cervejas').success(function (data, status, fun, header) {
                     debugger;
                     $scope.cervejas = data;
-                }).error(function(data, status, fun, header) {
+                }).error(function (data, status, fun, header) {
                     debugger;
-                    console.log("PROBLEMA ==>: "+data);
+                    console.log("PROBLEMA ==>: " + data);
                 });
-                
+
 //=======================================
 //                $.ajax({
 //                    //pegando a url apartir da action do form
@@ -55,25 +55,27 @@ modulo_cerveja
         .controller('adicionar_cerveja_ctrl', function ($scope) {
 
             $scope.adicionar = function () {
-                
-                var cerveja = $scope.cerveja;
                 debugger;
-                cerveja_service.criaCerveja(cerveja);
-                //$http.create(cerveja);
-                debugger;                
+                var cerveja = $scope.cerveja;
+
+
+                if (isValidouFormCriarCerveja()) {
+
+                    cerveja_service.criaCerveja(cerveja);
+
+                    $scope.cerveja = {};
+                }
+
+                exibirMenuBusca(false);
             }
 
         })
         .controller('deletar_cerveja_ctrl', function ($scope, $routeParams) {
             debugger;
             var cerjeva_a_deletar = $scope.cervejas[$routeParams.index];
-            
+
             cerveja_service.deletarCerveja(cerjeva_a_deletar, $scope, $routeParams.index);
-            
-        })
-        .controller('editarCervejasController', function ($scope, $routeParams) {
-            debugger;
-            $scope.cerveja = $scope.cervejas[$routeParams.index];
 
         });
+
 

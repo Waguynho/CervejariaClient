@@ -1,22 +1,22 @@
 <div class="container-fluid">
     
-    ﻿<div class="panel panel-default" ng-controller="editarCervejasController">
+    ﻿<div class="panel panel-default" >
 
         <div class="panel-heading" align="center">
-            <h2>Adicione uma Nova Cerveja<small> &nbsp; - Experimente {{$scope.cerveja.nome}} </small></h2>
+            <h2>Adicione uma Nova Cerveja<small> &nbsp; - Experimente  </small></h2>
         </div>
 
     </div>
     <form name="form_criar_cerveja">
 
         <label for="nome" >Nome</label><br>
-        <input id="nome" type="text" ng-model="cerveja.nome" value="" /><br><br>
+        <input id="nome" type="text" ng-model="cerveja.nome" onchange="validaNome()" value="" /><br><br>
          <label for="ano" >Ano</label><br>
-        <input id="ano" type="text" ng-model="cerveja.ano" value="" /><br><br>
-        <label for="importada" >Cerveja Importada</label>&zwnj;
+         <input id="ano" type="text" ng-model="cerveja.ano" onchange="validaAno()" value="" /><br><br>
+        <label for="importada" >Cerveja Importada</label>&nbsp;&nbsp;
         <input id="importada" type="checkbox" ng-model="cerveja.importada" />
         <br><br>
-        <input type="button" value="Salvar novo Registro" ng-click="adicionar()" />
+        <input type="button" value="Salvar Registro" ng-click="adicionar()" />
         <a href="/"></a>
     </form>
 </div>

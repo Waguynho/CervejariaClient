@@ -12,7 +12,7 @@
                 <th class="col-md-4">Importada?</th>
             </tr>
         </thead>
-        <tr ng-repeat="cerveja in cervejas" >
+        <tr ng-repeat="cerveja in cervejas | filter: buscar" >
 
             <td>{{cerveja.codigo}}</td>
             <td>{{cerveja.nome}}  </td>

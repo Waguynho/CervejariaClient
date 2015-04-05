@@ -11,8 +11,8 @@ modulo_cerveja
                         controller: 'adicionar_cerveja_ctrl'
                     })
                     .when('/Cervejaria1/cervejas/:index', {
-                        templateUrl: 'Views/editarCerveja.html',
-                        controller: 'editarCervejasController'
+                        templateUrl: 'Views/editarCerveja.html'
+                       //controller: 'editarCervejasController'
                     })
                     .when('/pessoa/excluirCerveja/:index', {
                         templateUrl: 'Views/listarCervejas.html',
