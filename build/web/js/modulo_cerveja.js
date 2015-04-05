@@ -6,9 +6,9 @@ modulo_cerveja
                     .when('/', {
                         templateUrl: 'Views/listarCervejas.html'
                     })
-                    .when('/pessoa/adicionarPessoa', {
-                        templateUrl: 'Views/adicionarPessoa.html',
-                        controller: 'pessoasAdicionarController'
+                    .when('/cerveja/adicionarCerveja', {
+                        templateUrl: 'Views/criarCerveja.html',
+                        controller: 'adicionar_cerveja_ctrl'
                     })
                     .when('/Cervejaria1/cervejas/:index', {
                         templateUrl: 'Views/editarCerveja.html',

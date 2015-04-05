@@ -4,8 +4,9 @@ modulo_cerveja
 
                 $scope.cervejas = [];
                 debugger;
-                cerveja_service.getCervejas('http://localhost:8080/Cervejaria1/cervejas',$scope);
+                cerveja_service.getCervejas($scope);
                 debugger;
+                
                 
 //=======================================
 //                $http.get('http://localhost:8080/Cervejaria1/cervejas').success(function (data, status, fun, header) {
@@ -51,14 +52,15 @@ modulo_cerveja
 
             }])
 
-        .controller('pessoasAdicionarController', function ($scope) {
+        .controller('adicionar_cerveja_ctrl', function ($scope) {
 
             $scope.adicionar = function () {
+                
+                var cerveja = $scope.cerveja;
                 debugger;
-                $scope.pessoas.push($scope.pessoa);
-                alert('Salvo com sucesso');
-                $scope.pessoa = null;
-
+                cerveja_service.criaCerveja(cerveja);
+                //$http.create(cerveja);
+                debugger;                
             }
 
         })
