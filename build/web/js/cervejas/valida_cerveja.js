@@ -5,7 +5,7 @@ function validaNome() {
 
     if (nome_cerveja == "" || nome_cerveja == null) {
 
-        seraCampo("nome", "Nome Inválido");
+        zeraCampo("nome", "Nome Inválido");
 
         return false;
     }
@@ -13,13 +13,14 @@ function validaNome() {
     return true;
 
 }
+
 function validaAno() {
 
     var ano_cerveja = $("#ano").val();
 
     if (isNaN(ano_cerveja)) {
 
-        seraCampo("ano", "Ano Inválido");
+        zeraCampo("ano", "Ano Inválido");
 
         return false;
     }
@@ -28,7 +29,7 @@ function validaAno() {
 
     if (!valida.test(ano_cerveja)) {
 
-        seraCampo("ano", "Ano Inválido");
+        zeraCampo("ano", "Ano Inválido");
 
         return false;
     }
@@ -36,14 +37,14 @@ function validaAno() {
     return  true;
 }
 
-function seraCampo(nome_campo, msg) {
+function zeraCampo(nome_campo, msg) {
 
     alert(msg);
     $("#" + nome_campo).val(null);
     $("#" + nome_campo).focus();
 }
 
-function isValidouFormCriarCerveja() {
+function isValidouFormCerveja() {
     
      if (!validaNome()) {
         return false;
@@ -57,7 +58,7 @@ function isValidouFormCriarCerveja() {
 }
 
 function exibirMenuBusca(exibir) {
-    debugger;
+    
     if (exibir == true) {
         
          $("#menu_buscar").show();

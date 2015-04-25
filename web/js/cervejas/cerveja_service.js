@@ -35,7 +35,7 @@ var cerveja_service = {
     },
     deletarCerveja: function (cerveja, escopo, indice) {
 
-        dados = indice;
+        dados = indice;//Usado pela função succesDelete p/ remover a linha excluida da tabela
         $scope = escopo;//Apenas para atualizar o Form sem recarregar a pag.
 
         var url_delete = url_base + cerveja.codigo;
