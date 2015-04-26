@@ -10,9 +10,9 @@ modulo_cerveja
                         templateUrl: 'Views/criarCerveja.html',
                         controller: 'adicionar_cerveja_ctrl'
                     })
-                    .when('/Cervejaria1/cervejas/:index', {
-                        templateUrl: 'Views/editarCerveja.html'
-                       //controller: 'editarCervejasController'
+                    .when('/Cervejaria1/cerveja/editarCerveja/:index', {
+                        templateUrl: 'Views/criarCerveja.html',//Aproveita-se a mesma View
+                        controller: 'editar_cerveja_ctrl'
                     })
                     .when('/cerveja/excluirCerveja/:index', {
                         templateUrl: 'Views/listarCervejas.html',

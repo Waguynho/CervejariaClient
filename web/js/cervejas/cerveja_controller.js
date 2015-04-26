@@ -2,8 +2,8 @@ modulo_cerveja
 
         .controller('cerveja_controller', ['$scope', '$http', function ($scope, $http) {
 
-        //var host = 'http://192.168.56.1:8080/Cervejaria1/cervejas';
-       var host = 'http://localhost:8080/Cervejaria1/cervejas';
+                //var host = 'http://192.168.56.1:8080/Cervejaria1/cervejas';
+                var host = 'http://localhost:8080/Cervejaria1/cervejas';
                 debugger;
 //                $scope.cervejas = [];
 //                debugger;
@@ -22,7 +22,6 @@ modulo_cerveja
 
 //=======================================
                 $.ajax({
-                   
                     url: host,
                     data: null,
                     type: 'GET',
@@ -57,10 +56,14 @@ modulo_cerveja
 
         .controller('adicionar_cerveja_ctrl', function ($scope) {
 
-            $scope.adicionar = function () {
+            exibirMenuBusca(false);
+
+            $("#titulo_form_cerveja").html("{{cerveja.nome}}<small> &nbsp; - Novo(a)   </small>");//so pra aproveitar o mesmo formulario
+
+            $scope.salvarRegistro = function () {
+
                 debugger;
                 var cerveja = $scope.cerveja;
-
 
                 if (isValidouFormCerveja()) {
 
@@ -68,8 +71,6 @@ modulo_cerveja
 
                     $scope.cerveja = {};
                 }
-
-                exibirMenuBusca(false);
             }
 
         })
@@ -79,6 +80,28 @@ modulo_cerveja
 
             cerveja_service.deletarCerveja(cerjeva_a_deletar, $scope, $routeParams.index);
 
+        })
+        .controller('editar_cerveja_ctrl', function ($scope, $routeParams) {
+            debugger;
+            exibirMenuBusca(false);
+
+            $scope.cerveja = $scope.cervejas[$routeParams.index];
+
+            $("#titulo_form_cerveja").html($scope.cerveja.nome + "<small> &nbsp; - Editar  </small>");//so pra aproveitar o mesmo formulario
+
+            $scope.salvarRegistro = function () {
+
+                var cerveja_a_editar = $scope.cerveja;
+
+
+                debugger;
+                if (isValidouFormCerveja()) {
+
+                    cerveja_service.editarCerveja(cerveja_a_editar);
+                }
+            }
+
         });
+
 
 

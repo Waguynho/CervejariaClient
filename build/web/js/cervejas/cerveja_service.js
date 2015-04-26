@@ -4,52 +4,79 @@ var dados;
 var $scope;
 var cerveja_service = {
     getCervejas: function (escopo) {
+        try {
+            $scope = escopo;
 
-        $scope = escopo;
+            request = retornaObjetoRequest();
 
-        request = retornaObjetoRequest();
+            debugger;
+            request.open("GET", url_base, true);
 
-        debugger;
-        request.open("GET", url_base, true);
+            request.onreadystatechange = retornaDados;
 
-        request.onreadystatechange = retornaDados;
-
-        request.send(null);
+            request.send(null);
+        } catch (e) {
+            alert("O PROBLEMA NO METODO: getCervejas \n" + e.message);
+        }
 
     },
     criaCerveja: function (cerveja) {
+        try {
+            request = retornaObjetoRequest();
 
-        request = retornaObjetoRequest();
+            request.open("POST", url_base, true);
 
-        request.open("POST", url_base, true);
+            request.onreadystatechange = sucessoSave;
 
-        request.onreadystatechange = sucessoSave;
+            request.setRequestHeader("Content-Type", "application/json");
 
-        request.setRequestHeader("Content-Type", "application/json");
+            debugger;
+            var cerveja_transformada = JSON.stringify(cerveja);
 
-        debugger;
-        var cerveja_transformada = JSON.stringify(cerveja);
-
-        request.send(cerveja_transformada);
-
+            request.send(cerveja_transformada);
+        } catch (e) {
+            alert("O PROBLEMA NO METODO: criaCerveja \n" + e.message);
+        }
     },
     deletarCerveja: function (cerveja, escopo, indice) {
+        try {
+            dados = indice;//Usado pela função succesDelete p/ remover a linha excluida da tabela
+            $scope = escopo;//Apenas para atualizar o Form sem recarregar a pag.
 
-        dados = indice;//Usado pela função succesDelete p/ remover a linha excluida da tabela
-        $scope = escopo;//Apenas para atualizar o Form sem recarregar a pag.
+            var url_delete = url_base + cerveja.codigo;
 
-        var url_delete = url_base + cerveja.codigo;
+            request = retornaObjetoRequest();
 
-        request = retornaObjetoRequest();
+            debugger;
+            request.open("DELETE", url_delete, true);
 
-        debugger;
-        request.open("DELETE", url_delete, true);
+            request.onreadystatechange = sucessoDelete;
 
-        request.onreadystatechange = sucessoDelete;
+            request.send(null);
+        } catch (e) {
+            alert("O PROBLEMA NO METODO: deletarCerveja \n" + e.message);
+        }
 
-        request.send(null);
 
     },
+    editarCerveja:  function (cerveja) {
+        try {
+            request = retornaObjetoRequest();
+
+            request.open("PUT", url_base+cerveja.codigo, true);
+
+            request.onreadystatechange = sucessoSave;
+
+            request.setRequestHeader("Content-Type", "application/json");
+
+            debugger;
+            var cerveja_transformada = JSON.stringify(cerveja);
+
+            request.send(cerveja_transformada);
+        } catch (e) {
+            alert("O PROBLEMA NO METODO: editarCerveja \n" + e.message);
+        }
+    }
 };
 
 function sucessoDelete(teste) {
@@ -61,17 +88,17 @@ function sucessoDelete(teste) {
                 debugger;
                 alert('Excluído com sucesso!');
 
-               $scope.cervejas.splice(dados,1);//Retiro do meu array o item excluido na posicão adequada
+                $scope.cervejas.splice(dados, 1);//Retiro do meu array o item excluido na posicão adequada
 
                 //document.location = "http://localhost:8080/CervejariaClient1/#/";
-                
+
                 document.location = "#/";
 
             }
         }
 
     } catch (e) {
-        alert("O PROBLEMA " + e.message);
+        alert("O PROBLEMA NO METODO: sucessoDelete \n" + e.message);
     }
 
 }
@@ -84,15 +111,25 @@ function sucessoSave() {
             debugger;
             var RESULTADO = request.responseText;
 
-            if (request.status == 201) {
+            if (request.status == 201 ) {//Post
 
-                alert('Salvo com sucesso!');
+                alert('Criado com sucesso!');
                 $("form")[0].reset();
+                return;
             }
+            
+            if (request.status == 200 ) {//Put
+
+                alert('Editado com sucesso!');
+               return;
+            }
+            
+            alert("ERRO NO SERVIDOR: "+request.status+" "+request.statusText);
         }
 
     } catch (e) {
-        alert("O PROBLEMA " + e.message);
+        alert("O PROBLEMA NO METODO \n: sucessoSave" + e.message);
+        alert("ERRO NO SERVIDOR: "+request.status+" "+request.statusText);
     }
 
 }
@@ -113,7 +150,7 @@ function retornaDados() {
         }
 
     } catch (e) {
-        alert("O PROBLEMA " + e.message);
+        alert("O PROBLEMA NO METODO: retornaDados \n" + e.message);
     }
 
 }

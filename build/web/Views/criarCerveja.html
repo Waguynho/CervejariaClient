@@ -3,7 +3,7 @@
     ﻿<div class="panel panel-default" >
 
         <div class="panel-heading" align="center">
-            <h2>Adicione uma Nova Cerveja<small> &nbsp; - Experimente  </small></h2>
+            <h2 id="titulo_form_cerveja">{{cerveja.nome}} </h2>
         </div>
 
     </div>
@@ -16,7 +16,7 @@
         <label for="importada" >Cerveja Importada</label>&nbsp;&nbsp;
         <input id="importada" type="checkbox" ng-model="cerveja.importada" />
         <br><br>
-        <input type="button" value="Salvar Registro" ng-click="adicionar()" />
+        <input type="button" value="Salvar Registro" ng-click="salvarRegistro()" />
         <a href="/"></a>
     </form>
 </div>
