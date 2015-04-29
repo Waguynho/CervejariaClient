@@ -1,9 +1,10 @@
+                //var url_base = 'http://10.1.1.41:8080/Cervejaria1/cervejas';
+                //var url_base = 'http://192.168.43.112:8080/Cervejaria1/cervejas';
+                var url_base = 'http://localhost:8080/Cervejaria1/cervejas/';
 modulo_cerveja
 
         .controller('cerveja_controller', ['$scope', '$http', function ($scope, $http) {
-
-                var host = 'http://192.168.43.112:8080/Cervejaria1/cervejas';
-                //var host = 'http://localhost:8080/Cervejaria1/cervejas/';
+               
                 debugger;
 //                $scope.cervejas = [];
 //                debugger;
@@ -12,7 +13,7 @@ modulo_cerveja
 
 
 //=======================================
-//                $http.get(host).success(function (data, status, fun, header) {
+//                $http.get(url_base).success(function (data, status, fun, header) {
 //                    debugger;
 //                    $scope.cervejas = data;
 //                }).error(function (data, status, fun, header) {
@@ -21,14 +22,16 @@ modulo_cerveja
 //                });
 
 //=======================================
+               
 //                $.ajax({
-//                    url: host,
-//                    data: null,
-//                    type: 'GET',
-//                    contentType: "application/json; charset=utf-8",
-//                    dataType: "json",
 //                    crossDomain: true,
-//                    async: false,
+//                    url: url_base,
+////                    data: null,
+////                    type: 'GET',
+//                    //contentType: "application/json; charset=utf-8",
+//                    //dataType: "json",
+//                    context: {},
+//                    //async: false,
 //                    success: function (data, XMLHttpRequest, jqXHR) {
 //                        try {
 //                            debugger;
@@ -51,16 +54,15 @@ modulo_cerveja
 //                });
 
 //=======================================
-
-                $.getJSON(host,
-                        {
-                            format: "json"
-                        },
-                function (data, text, xhr) {
-                    $scope.cervejas = [];
-                    $scope.cervejas = data;
-                    debugger;
-                }
+                $.ajaxSetup({
+                    crossOrigin: true
+                });
+                $.getJSON(url_base,
+                        function (data, text, xhr) {
+                            $scope.cervejas = [];
+                            $scope.cervejas = data;
+                            debugger;
+                        }
                 );
 
 

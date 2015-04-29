@@ -1,6 +1,5 @@
 var request = null;
-//var url_base = "http://localhost:8080/Cervejaria1/cervejas/";
-var url_base = 'http://192.168.43.112:8080/Cervejaria1/cervejas/';
+
 var dados;
 var $scope;
 var cerveja_service = {
