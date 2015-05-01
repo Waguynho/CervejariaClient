@@ -4,4 +4,6 @@ build.xml
 # Package Files #
 *.war
 *.ear
-
+/build/
+/dist/
+/web/META-INF/
