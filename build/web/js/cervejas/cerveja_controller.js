@@ -1,10 +1,11 @@
-                //var url_base = 'http://10.1.1.41:8080/Cervejaria1/cervejas';
-                //var url_base = 'http://192.168.43.112:8080/Cervejaria1/cervejas';
-                var url_base = 'http://localhost:8080/Cervejaria1/cervejas/';
+//var url_base = 'http://10.1.1.41:8080/Cervejaria1/cervejas';
+//var url_base = 'http://192.168.43.112:8080/Cervejaria1/cervejas';
+var url_base = 'http://localhost:8084/Cervejaria1/cervejas/';
+var dummy = "?dummy=" + new Date().getTime();
 modulo_cerveja
 
-        .controller('cerveja_controller', ['$scope', '$http', function ($scope, $http) {
-               
+        .controller('cerveja_controller', ['$scope', '$http', function($scope, $http) {
+
                 debugger;
 //                $scope.cervejas = [];
 //                debugger;
@@ -13,16 +14,16 @@ modulo_cerveja
 
 
 //=======================================
-//                $http.get(url_base).success(function (data, status, fun, header) {
-//                    debugger;
-//                    $scope.cervejas = data;
-//                }).error(function (data, status, fun, header) {
-//                    debugger;
-//                    console.log("PROBLEMA ==>: " + data);
-//                });
+                $http.get(url_base+dummy).success(function (data, status, fun, header) {
+                    debugger;
+                    $scope.cervejas = data;
+                }).error(function (data, status, fun, header) {
+                    debugger;
+                    console.log("PROBLEMA ==>: " + data);
+                });
 
 //=======================================
-               
+
 //                $.ajax({
 //                    crossDomain: true,
 //                    url: url_base,
@@ -54,26 +55,27 @@ modulo_cerveja
 //                });
 
 //=======================================
-                $.ajaxSetup({
-                    crossOrigin: true
-                });
-                $.getJSON(url_base,
-                        function (data, text, xhr) {
-                            $scope.cervejas = [];
-                            $scope.cervejas = data;
-                            debugger;
-                        }
-                );
+//                $.ajaxSetup({
+//                    crossOrigin: true
+//                });
+//                $.getJSON(url_base,
+//                        function(data, text, xhr) {
+//                            $scope.cervejas = [];
+//                            $scope.cervejas = data;
+//                                                      
+//                            debugger;
+//                        }
+//                );
 
 
             }])
-        .controller('adicionar_cerveja_ctrl', function ($scope) {
+        .controller('adicionar_cerveja_ctrl', function($scope) {
 
             exibirMenuBusca(false);
 
             $("#titulo_form_cerveja").html("{{cerveja.nome}}<small> &nbsp; - Novo(a)   </small>");//so pra aproveitar o mesmo formulario
 
-            $scope.salvarRegistro = function () {
+            $scope.salvarRegistro = function() {
 
                 debugger;
                 var cerveja = $scope.cerveja;
@@ -88,14 +90,14 @@ modulo_cerveja
 
 
         })
-        .controller('deletar_cerveja_ctrl', function ($scope, $routeParams) {
+        .controller('deletar_cerveja_ctrl', function($scope, $routeParams) {
             debugger;
             var cerjeva_a_deletar = $scope.cervejas[$routeParams.index];
 
             cerveja_service.deletarCerveja(cerjeva_a_deletar, $scope, $routeParams.index);
 
         })
-        .controller('editar_cerveja_ctrl', function ($scope, $routeParams) {
+        .controller('editar_cerveja_ctrl', function($scope, $routeParams) {
             debugger;
             exibirMenuBusca(false);
 
@@ -103,7 +105,7 @@ modulo_cerveja
 
             $("#titulo_form_cerveja").html($scope.cerveja.nome + "<small> &nbsp; - Editar  </small>");//so pra aproveitar o mesmo formulario
 
-            $scope.salvarRegistro = function () {
+            $scope.salvarRegistro = function() {
 
                 var cerveja_a_editar = $scope.cerveja;
 
