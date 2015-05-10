@@ -51,10 +51,24 @@ and open the template in the editor.
                     </div>
 
                     <div  class="col-md-offset-1">
-                        <di id="menu_buscar">
+                        <di id="menu_buscar" >
 
-                            <label for="buscar" >Buscar</label><br>
-                            <input id="nome" type="search" ng-model="buscar" value="" /><br><br>
+                            <label  >Buscar Por:</label><br>
+                            <input id="buscar_texto" class="a1" type="radio" checked="true" name="buscar_por"  value="texto"  />&zwj;<label for="buscar_texto"> texto </label>&zwj;
+                            <input id="buscar_ano" class="a1" type="radio" name="buscar_por"  value="ano"  />&zwj;<label for="buscar_ano" class="text-center"> ano </label><br><br>
+                            <input id="texto" type="search"   ng-model="buscar" value="" /><br><br>
+
+                            <div id="option_set_ano">
+                                <select id="filtro_ano">
+                                    <option value="igual" selected="true">Igual a</option>
+                                    <option value="maior">Maior que</option>
+                                    <option value="menor">Menor que</option>
+                                </select><br><br>
+
+                                <select id="lista_anos">
+
+                                </select>
+                            </div>
                         </di>
 
 

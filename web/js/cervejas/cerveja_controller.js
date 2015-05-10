@@ -5,7 +5,8 @@ var dummy = "?dummy=" + new Date().getTime();
 modulo_cerveja
 
         .controller('cerveja_controller', ['$scope', '$http', function($scope, $http) {
-
+                carregaEventos();
+              
                 debugger;
 //                $scope.cervejas = [];
 //                debugger;
@@ -118,6 +119,5 @@ modulo_cerveja
             }
 
         });
-
 
 
