@@ -6,7 +6,7 @@ modulo_cerveja
 
         .controller('cerveja_controller', ['$scope', '$http', function($scope, $http) {
                 carregaEventos();
-              
+
                 debugger;
 //                $scope.cervejas = [];
 //                debugger;
@@ -15,10 +15,10 @@ modulo_cerveja
 
 
 //=======================================
-                $http.get(url_base+dummy).success(function (data, status, fun, header) {
+                $http.get(url_base + dummy).success(function(data, status, fun, header) {
                     debugger;
                     $scope.cervejas = data;
-                }).error(function (data, status, fun, header) {
+                }).error(function(data, status, fun, header) {
                     debugger;
                     console.log("PROBLEMA ==>: " + data);
                 });
@@ -118,6 +118,30 @@ modulo_cerveja
                 }
             }
 
-        });
+        })
+        .controller('listar_cerveja_por_ano_ctrl', ['$scope', '$http', function($scope, $http) {
+
+                var filtro = $("#filtro_ano").val();
+                var ano = $("#lista_anos").val();
+                var sufixo = "ano?valor="+ano;
+                debugger;
+                if (filtro == "maior") {
+                    sufixo += "&maior=true";
+                }
+
+                if (filtro == "menor") {
+                    sufixo += "&menor=true";
+                }
+
+                $http.get(url_base + sufixo+"&"+ new Date().getTime()).success(function(data, status, fun, header) {
+                    debugger;
+                    $scope.cervejas = data;
+                }).error(function(data, status, fun, header) {
+                    debugger;
+                    console.log("PROBLEMA ==>: " + data);
+                });
+
+
+            }]);
 
 

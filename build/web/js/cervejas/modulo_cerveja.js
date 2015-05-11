@@ -18,5 +18,9 @@ modulo_cerveja
                         templateUrl: 'Views/listarCervejas.html',
                         controller: 'deletar_cerveja_ctrl'
                     })
+                    .when('/Cervejaria1/cerveja/listarPorAno', {
+                        templateUrl: 'Views/listarCervejas.html',
+                        controller: 'listar_cerveja_por_ano_ctrl'
+                    })
         });
 
